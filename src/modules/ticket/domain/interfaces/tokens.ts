@@ -1,0 +1,3 @@
+export const ASSIGNMENT_STRATEGY = Symbol('ASSIGNMENT_STRATEGY');
+export const CRM_CLIENT = Symbol('CRM_CLIENT');
+export const TICKET_REPOSITORY = Symbol('TICKET_REPOSITORY');
