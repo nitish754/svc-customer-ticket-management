@@ -1,8 +1,8 @@
-import { InjectQueue } from '@nestjs/bullmq';
-import { Injectable } from '@nestjs/common';
-import { Queue } from 'bullmq';
-import { Ticket } from '../../domain/interfaces/ticket.interface';
-import { CRM_SYNC_JOB, CRM_SYNC_QUEUE } from './queue.constants';
+import { InjectQueue } from "@nestjs/bullmq";
+import { Injectable } from "@nestjs/common";
+import { Queue } from "bullmq";
+import { Ticket } from "../../domain/interfaces/ticket.interface";
+import { CRM_SYNC_JOB, CRM_SYNC_QUEUE } from "./queue.constants";
 
 @Injectable()
 export class CrmSyncProducer {
@@ -12,17 +12,17 @@ export class CrmSyncProducer {
     await this.queue.add(
       CRM_SYNC_JOB,
       {
-        ticket,
+        ticket
       },
       {
         attempts: 3,
         backoff: {
-          type: 'exponential',
-          delay: 2000,
+          type: "exponential",
+          delay: 2000
         },
-        removeOnComplete: true,
-        removeOnFail: 50,
-      },
+        removeOnComplete: 50,
+        removeOnFail: 50
+      }
     );
   }
 }
